@@ -30,8 +30,8 @@
                 echo $date;
                 //die();
                 
-                $insertQuery = "INSERT INTO `aliens` (`name`, `email`, `location`, `date`, `time`, `scary`, `message`, `alienImg`) 
-                VALUES ('$name', '$email', '$location', '$date', '$time', $scary, '$message', '$filename')";
+                $insertQuery = "INSERT INTO `aliens` (`name`, `email`, `location`, `date`, `time`, `scary`, `message`, `alienImg`, `approved`) 
+                VALUES ('$name', '$email', '$location', '$date', '$time', $scary, '$message', '$filename',0)";
 
                 // execute the query
                 $result = $conn->query($insertQuery);
