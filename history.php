@@ -36,12 +36,16 @@
 
       while ($row = mysqli_fetch_assoc($result)) {
         echo '<tr>';
+        // Construct image path
         $imagePath = 'assets/images/' . $row['alienImg'];
+        // Check if image is not empty and exists
         if (!empty($row['alienImg']) && file_exists($imagePath)) {
             echo "<td><img src='$imagePath' width='100px'></td>";
         } else {
+          // Display default image
             echo "<td><img src='assets/images/default-image.jpg' width='100px'></td>";
         }
+        // Display other data
         echo '<td>' . $row['location'] . '</td>';
         echo '<td>' . $row['date'] . '</td>';
         echo "<td><a href='#' class='btn btn-primary'>Details</a></td>";
