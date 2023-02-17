@@ -1,8 +1,8 @@
 <?php
-$host = 'localhost';
-$user = 'root';
-$database = 'testphp';
-$password = 'welcome123';
+$host = 'ID324796_ufo.db.webhosting.be';
+$user = 'ID324796_ufo';
+$database = 'ID324796_ufo';
+$password = 'm1i4q9ov7moVfpZ01b88';
 
 // Create connection
 $conn = new mysqli($host, $user, $password, $database);
