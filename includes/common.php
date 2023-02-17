@@ -65,3 +65,11 @@ function getDateInDutch() {
     }
     return $result;
   }
+
+  // create a function to format the date from 2023-01-01 to 01-01-2023
+  function formatDate($date) {
+    $date = explode('-', $date);
+    $date = array_reverse($date);
+    $date = implode('-', $date);
+    return $date;
+  }
