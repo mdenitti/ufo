@@ -27,8 +27,11 @@
                 $date = $_POST['date'];
                 $time = $_POST['time'];
 
+                echo $date;
+                //die();
+                
                 $insertQuery = "INSERT INTO `aliens` (`name`, `email`, `location`, `date`, `time`, `scary`, `message`, `alienImg`) 
-                VALUES ('$name', '$email', '$location', $date, '$time', $scary, '$message', '$filename')";
+                VALUES ('$name', '$email', '$location', '$date', '$time', $scary, '$message', '$filename')";
 
                 // execute the query
                 $result = $conn->query($insertQuery);
