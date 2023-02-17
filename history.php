@@ -47,7 +47,7 @@
         }
         // Display other data
         echo '<td>' . $row['location'] . '</td>';
-        echo '<td>' . $row['date'] . '</td>';
+        echo '<td>' . $row['date'] . ' - '. $row['time'] .'</td>';
         echo "<td><a href='#' class='btn btn-primary'>Details</a></td>";
         echo '</tr>';
       }
