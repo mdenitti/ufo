@@ -48,7 +48,7 @@
         // Display other data
         echo '<td>' . $row['location'] . '</td>';
         echo '<td>' . formatDate($row['date']) . ' - '. $row['time'] .'</td>';
-        echo "<td><a href='#' class='btn btn-primary'>Details</a></td>";
+        echo "<td><a href='details.php?id={$row['id']}' class='btn btn-primary'>Details</a></td>";
         echo '</tr>';
       }
 
