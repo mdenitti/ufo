@@ -31,20 +31,26 @@
     </tr>
   </thead>
   <tbody>
- <?php   
-  while ($row = mysqli_fetch_assoc($result)) {
-        // $results[] = $row;
+
+    <?php
+
+      while ($row = mysqli_fetch_assoc($result)) {
         echo '<tr>';
-        echo "<td><img src='assets/images/".$row['alienImg']."' width=100px></td>";
+        $imagePath = 'assets/images/' . $row['alienImg'];
+        if (!empty($row['alienImg']) && file_exists($imagePath)) {
+            echo "<td><img src='$imagePath' width='100px'></td>";
+        } else {
+            echo "<td><img src='assets/images/default-image.jpg' width='100px'></td>";
+        }
         echo '<td>' . $row['location'] . '</td>';
         echo '<td>' . $row['date'] . '</td>';
         echo "<td><a href='#' class='btn btn-primary'>Details</a></td>";
         echo '</tr>';
-  }
+      }
+
     ?>
-    
-   
-  </tbody>
+
+    </tbody>
 </table>
 
 
