@@ -7,7 +7,7 @@
                 - <?php echo getDateInDutch()?>
                 </p>
 
-                <form method="post" action="process.php" enctype="multipart/form-data">
+                <form method="post" action="process.php" enctype="multipart/form-data" class="bg-dark p-2 text-dark bg-opacity-10 rounded mb-2">
                     <input class='form-control' type="text" name="name" placeholder="Name"><hr>
                     <input class='form-control' type="email" name="email" placeholder="Email"><hr>
                     <input class='form-control' type="text" name="location" placeholder="Location"><hr>
