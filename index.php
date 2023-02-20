@@ -3,9 +3,9 @@
         <div class="row">
             <div class="col">
         
-                <p>Fill out the form below to submit your UFO sighting
+                <h6>Fill out the form below to submit your UFO sighting
                 - <?php echo getDateInDutch()?>
-                </p>
+                </h6>
 
                 <form method="post" action="process.php" enctype="multipart/form-data" class="bg-dark p-2 text-dark bg-opacity-10 rounded mb-2">
                     <input class='form-control' type="text" name="name" placeholder="Name"><hr>
