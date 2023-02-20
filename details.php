@@ -20,7 +20,6 @@ if (isset($_GET['id'])) {
     echo "<p>". formatDate($row['date']) ." - {$row['time']}</p>";
     echo "<p class='fw-bold'>Description:</p>";
     echo "<p>{$row['message']}</p>";
-    echo '</div>';
 
     // Display image
     $imagePath = 'assets/images/' . $row['alienImg'];
@@ -29,6 +28,13 @@ if (isset($_GET['id'])) {
     } else {
         echo "<img src='assets/images/default-image.jpg' alt='Default image' class='img-fluid'>";
     }    
+
+    // Add social media sharing buttons
+    echo '<div class="m-1 text-center">';
+    echo '<span class="fw-bold">Share on:</span> <a href="https://www.facebook.com/sharer.php?u='. urlencode($_SERVER['REQUEST_URI']) .'" target="_blank"><i class="fab fa-facebook fa-lg me-3"></i></a>';
+    echo '<a href="https://twitter.com/intent/tweet?url='. urlencode($_SERVER['REQUEST_URI']) .'" target="_blank"><i class="fab fa-twitter fa-lg"></i></a>';
+    echo '</div>';
+    echo '</div>';
 
   } else {
     // Sighting not found
