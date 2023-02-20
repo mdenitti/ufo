@@ -12,10 +12,24 @@ if (isset($_GET['id'])) {
     // Display sighting details
     echo '<div class="col">';
     echo '<h1>Sighting details</h1>';
-    echo "<p><strong>Location:</strong> {$row['location']}</p>";
-    echo "<p><strong>Date:</strong> ". formatDate($row['date']) ." - {$row['time']}</p>";
-    echo "<p><strong>Description:</strong> {$row['message']}</p>";
+
+    // Display location, date and time, and description
+    echo "<p class='fw-bold'>Location:</p>";
+    echo "<p>{$row['location']}</p>";
+    echo "<p class='fw-bold'>Date & Time:</p>";
+    echo "<p>". formatDate($row['date']) ." - {$row['time']}</p>";
+    echo "<p class='fw-bold'>Description:</p>";
+    echo "<p>{$row['message']}</p>";
     echo '</div>';
+
+    // Display image
+    $imagePath = 'assets/images/' . $row['alienImg'];
+    if (!empty($row['alienImg']) && file_exists($imagePath)) {
+        echo "<img src='$imagePath' alt='Alien image' class='img-fluid'>";
+    } else {
+        echo "<img src='assets/images/default-image.jpg' alt='Default image' class='img-fluid'>";
+    }    
+
   } else {
     // Sighting not found
     echo '<div class="col">';
