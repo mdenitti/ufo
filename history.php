@@ -3,11 +3,6 @@
 <div class="col">
     <h1>Sightings list</h1>
 
-<!--     bootstrap tabel
-    query select * from aliens
-    foreach van de data
-    basic styling -->
-
     <?php 
     $query = "SELECT * FROM aliens WHERE approved = 1 ORDER BY id DESC";
     // $result = mysqli_query($conn, $query);
