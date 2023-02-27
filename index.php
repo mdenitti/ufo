@@ -22,6 +22,7 @@
                     <input class='btn btn-primary' type="submit" value="Submit">
                 </form>
             </div>
-        </div>
+        </div> 
+
 
  <?php require 'footer.php' ?>
