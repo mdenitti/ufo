@@ -27,7 +27,7 @@ require 'includes/env.php';
                   </button>
                   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
-                      <a class="nav-link" href="/">Home</a>
+                      <a class="nav-link" href="index.php">Home</a>
                       <a class="nav-link" href="aboutus.php">About us</a>
                       <a class="nav-link" href="blog.php">Blog</a>
                       <a class="nav-link" href="history.php">Sighting list</a>
