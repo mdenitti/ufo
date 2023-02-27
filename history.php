@@ -37,7 +37,9 @@
                     echo '<td>' . formatDate($row['date']) . ' - '. $row['time'] .'</td>';
                     echo '<td>' . $row['message'] . '</td>';
                     echo '<td>' . ($row['scary'] ? 'Yes' : 'No') . '</td>';
-                    echo "<td><a href='details.php?id=". base64_encode($row['id']) ."' class='btn btn-primary'>Details</a></td>";
+                    // Encrypt the ID using openssl_encrypt
+                    $id_encrypted = openssl_encrypt($row['id'], 'AES-256-CBC', 'my-secret-key');
+                    echo "<td><a href='details.php?id=$id_encrypted' class='btn btn-primary'>Details</a></td>";
                     echo '</tr>';
                 }
             ?>
