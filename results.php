@@ -1,7 +1,7 @@
 <?php require 'header.php' ?>
 
 <div class="container">
-  <h1 class="my-3">Search results</h1>
+  <h1>Search results</h1>
 
   <table class="table">
     <thead>
