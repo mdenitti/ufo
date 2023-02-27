@@ -16,7 +16,7 @@ MySQL 5.6 or later
 
 ## Installation
 
-To install the application, simply clone the repository and run the composer install command.
+To install the application, simply clone the repository in your htdocs folder, edit the .env example file with your database and database credentials.
 
 ## Usage
 
