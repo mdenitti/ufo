@@ -28,6 +28,10 @@
                 $time = $_POST['time'];
 
                 // PDF SNIPPET
+                $pathImg = 'assets/images/'.$filename;
+                $getImg = file_get_contents($pathImg);
+                $encimage = base64_encode($getImg);
+                
 
                 // reference the Dompdf namespace
                 use Dompdf\Dompdf;
@@ -39,7 +43,8 @@
                 $html .= '<p>Date: '.formatDate($date).'</p>';
                 $html .= '<p>Time: '.$time.'</p>';
                 $html .= '<p>Message: '.$message.'</p>';
-                $html .= '<p>Image: <img src="http://localhost:8000/assets/images/'.$filename.'" width="200"></p>';   
+                $html .= '<p><img src="data:image/svg+xml;base64,' . $encimage . '"</p>';
+                // $html .= '<p>Image: <img src="http://localhost:8000/assets/images/'.$filename.'" width="200"></p>';   
                 $html .= '<p>Scary: '.($scary ? 'Yes' : 'No').'</p>';
                 $html .= '<p>Thank you for your submission</p>';
 
