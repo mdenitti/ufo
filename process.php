@@ -1,4 +1,4 @@
-<?php require 'header.php' ?>
+<?php require 'header.php'; ?>
 
         <div class="row">
             <div class="col">
@@ -27,8 +27,26 @@
                 $date = $_POST['date'];
                 $time = $_POST['time'];
 
-                echo $date;
-                //die();
+                // PDF SNIPPET
+
+                // reference the Dompdf namespace
+                use Dompdf\Dompdf;
+
+                // instantiate and use the dompdf class
+                $dompdf = new Dompdf();
+                $dompdf->loadHtml('hello world');
+
+                // (Optional) Setup the paper size and orientation
+                $dompdf->setPaper('A4', 'landscape');
+
+                // Render the HTML as PDF
+                $dompdf->render();
+                ob_end_clean();
+                // Output the generated PDF to Browser
+                $dompdf->stream();
+                
+                
+                die();
                 
                 $insertQuery = "INSERT INTO `aliens` (`name`, `email`, `location`, `date`, `time`, `scary`, `message`, `alienImg`, `approved`) 
                 VALUES ('$name', '$email', '$location', '$date', '$time', $scary, '$message', '$filename',0)";
