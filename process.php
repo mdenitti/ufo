@@ -34,7 +34,14 @@
 
                 // instantiate and use the dompdf class
                 $dompdf = new Dompdf();
-                $dompdf->loadHtml('hello world');
+
+                // load the contents of pdf.php into a variable
+                ob_start();
+                include 'pdf.php';
+                $html = ob_get_clean();
+
+                // load the HTML into dompdf
+                $dompdf->loadHtml($html);
 
                 // (Optional) Setup the paper size and orientation
                 $dompdf->setPaper('A4', 'landscape');
@@ -42,9 +49,9 @@
                 // Render the HTML as PDF
                 $dompdf->render();
                 ob_end_clean();
+
                 // Output the generated PDF to Browser
-                $dompdf->stream();
-                
+                $dompdf->stream('my_document.pdf');
                 
                 die();
                 
