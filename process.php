@@ -31,9 +31,21 @@
 
                 // reference the Dompdf namespace
                 use Dompdf\Dompdf;
+                $html = '<h1>UFO Certificate</h1>';
+                $html .= '<p>You have been in contact with a UFO</p>';
+                $html .= '<p>Name: '.$name.'</p>';
+                $html .= '<p>Email: '.$email.'</p>';
+                $html .= '<p>Location: '.$location.'</p>';
+                $html .= '<p>Date: '.formatDate($date).'</p>';
+                $html .= '<p>Time: '.$time.'</p>';
+                $html .= '<p>Message: '.$message.'</p>';
+                $html .= '<p>Image: <img src="http://localhost:8000/assets/images/'.$filename.'" width="200"></p>';   
+                $html .= '<p>Scary: '.($scary ? 'Yes' : 'No').'</p>';
+                $html .= '<p>Thank you for your submission</p>';
 
                 // instantiate and use the dompdf class
                 $dompdf = new Dompdf();
+<<<<<<< HEAD
 
                 // load the contents of pdf.php into a variable
                 ob_start();
@@ -41,6 +53,8 @@
                 $html = ob_get_clean();
 
                 // load the HTML into dompdf
+=======
+>>>>>>> 7bcfa51c0396e3588d10a93c92a56a216edc8878
                 $dompdf->loadHtml($html);
 
                 // (Optional) Setup the paper size and orientation
