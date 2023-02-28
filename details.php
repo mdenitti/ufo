@@ -4,8 +4,7 @@ require 'header.php';
 // Check if ID parameter is set
 if (isset($_GET['id'])) {
   // Decrypt the ID using openssl_decrypt
-  $id_decrypted = openssl_decrypt($_GET['id'], 'AES-256-CBC', 'my-secret-key');
-  $id = intval($id_decrypted);
+  $id = decrypt_id($_GET['id']);
   $query = "SELECT * FROM aliens WHERE id = $id AND approved = 1";
   $result = mysqli_query($conn, $query);
   $row = mysqli_fetch_assoc($result);
