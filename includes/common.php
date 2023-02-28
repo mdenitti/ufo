@@ -73,3 +73,15 @@ function getDateInDutch() {
     $date = implode('-', $date);
     return $date;
   }
+
+  // encrypt id
+  function encrypt_id($id) {
+    $id_encrypted = openssl_encrypt($id, 'AES-256-CBC', 'my-secret-key');
+    return $id_encrypted;
+}
+
+//decrypt id
+function decrypt_id($id_encrypted) {
+  $id_decrypted = openssl_decrypt($id_encrypted, 'AES-256-CBC', 'my-secret-key');
+  return intval($id_decrypted);
+}

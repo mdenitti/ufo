@@ -1,7 +1,7 @@
 <?php require 'header.php' ?>
 
 <div class="container">
-  <h1 class="my-3">Search results</h1>
+  <h1>Search results</h1>
 
   <table class="table">
     <thead>
@@ -37,7 +37,9 @@
             echo '<td>' . formatDate($row['date']) . ' - '. $row['time'] .'</td>';
             echo '<td>' . $row['message'] . '</td>';
             echo '<td>' . ($row['scary'] ? 'Yes' : 'No') . '</td>';
-            echo "<td><a href='details.php?id={$row['id']}' class='btn btn-primary'>Details</a></td>";
+            // Encrypt the ID using openssl_encrypt
+            $id_encrypted = encrypt_id($row['id']);
+            echo "<td><a href='details.php?id=$id_encrypted' class='btn btn-primary'>Details</a></td>";
             echo '</tr>';
           }
         } else {
