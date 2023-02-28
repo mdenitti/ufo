@@ -1,4 +1,6 @@
-<?php require 'header.php'; ?>
+<?php 
+require 'header.php';
+?>
 
         <div class="row">
             <div class="col">
@@ -34,7 +36,7 @@
                 
 
                 // reference the Dompdf namespace
-                use Dompdf\Dompdf;
+               
                 $html = '<body style="font-family: Helvetica;">';
                 $html .= '<h1 style="color:#CC0000">UFO Certificate</h1>';
                 $html .= '<p>You have been in contact with a UFO</p>';
@@ -50,21 +52,9 @@
                 $html .= '<p>Thank you for your submission</p>';
                 $html .= '</body>';
 
-                // instantiate and use the dompdf class
-                $dompdf = new Dompdf();
-                $dompdf->loadHtml($html);
-
-                // (Optional) Setup the paper size and orientation
-                $dompdf->setPaper('A4', 'portrait');
-
-                // Render the HTML as PDF
-                $dompdf->render();
-                ob_end_clean();
-                // Output the generated PDF to Browser
-                $dompdf->stream();
+                // Generate the PDF and get its file path
+               
                 
-                
-                die();
                 
                 $insertQuery = "INSERT INTO `aliens` (`name`, `email`, `location`, `date`, `time`, `scary`, `message`, `alienImg`, `approved`) 
                 VALUES ('$name', '$email', '$location', '$date', '$time', $scary, '$message', '$filename',0)";
@@ -86,6 +76,12 @@
                 <hr>
                 <h2>Image</h2>
                 <img src="assets/images/<?php echo $filename?>" width="200">
+                <hr>
+                <?php
+                    $pdfPath = generatePDF($html);
+                    $downloadpdf = $pdfPath;
+                    echo '<a href="'.$downloadpdf.'" class="btn btn-primary" target="_blank">Download PDF</a>';
+                ?>
             </div>
         </div>
 
