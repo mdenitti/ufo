@@ -45,16 +45,6 @@
 
                 // instantiate and use the dompdf class
                 $dompdf = new Dompdf();
-<<<<<<< HEAD
-
-                // load the contents of pdf.php into a variable
-                ob_start();
-                include 'pdf.php';
-                $html = ob_get_clean();
-
-                // load the HTML into dompdf
-=======
->>>>>>> 7bcfa51c0396e3588d10a93c92a56a216edc8878
                 $dompdf->loadHtml($html);
 
                 // (Optional) Setup the paper size and orientation
