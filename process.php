@@ -35,7 +35,8 @@
 
                 // reference the Dompdf namespace
                 use Dompdf\Dompdf;
-                $html = '<h1>UFO Certificate</h1>';
+                $html = '<body style="font-family: Helvetica;">';
+                $html .= '<h1 style="color:#CC0000">UFO Certificate</h1>';
                 $html .= '<p>You have been in contact with a UFO</p>';
                 $html .= '<p>Name: '.$name.'</p>';
                 $html .= '<p>Email: '.$email.'</p>';
@@ -43,17 +44,18 @@
                 $html .= '<p>Date: '.formatDate($date).'</p>';
                 $html .= '<p>Time: '.$time.'</p>';
                 $html .= '<p>Message: '.$message.'</p>';
-                $html .= '<p><img src="data:image/svg+xml;base64,' . $encimage . '"</p>';
+                $html .= '<p><img src="data:image/svg+xml;base64,'.$encimage.'" width="300px"></p>';
                 // $html .= '<p>Image: <img src="http://localhost:8000/assets/images/'.$filename.'" width="200"></p>';   
                 $html .= '<p>Scary: '.($scary ? 'Yes' : 'No').'</p>';
                 $html .= '<p>Thank you for your submission</p>';
+                $html .= '</body>';
 
                 // instantiate and use the dompdf class
                 $dompdf = new Dompdf();
                 $dompdf->loadHtml($html);
 
                 // (Optional) Setup the paper size and orientation
-                $dompdf->setPaper('A4', 'landscape');
+                $dompdf->setPaper('A4', 'portrait');
 
                 // Render the HTML as PDF
                 $dompdf->render();
