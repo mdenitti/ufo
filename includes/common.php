@@ -73,3 +73,17 @@ function getDateInDutch() {
     $date = implode('-', $date);
     return $date;
   }
+
+  function encryptId ($id) {
+    $id = base64_encode($id);
+    // replace the = char to prevent errors
+    $id = str_replace('=', '', $id);
+    $id = strrev($id);
+    return $id;
+  }
+
+  function decryptId ($id) {
+    $id = strrev($id);
+    $id = base64_decode($id);
+    return $id;
+  }

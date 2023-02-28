@@ -37,7 +37,7 @@
                     echo '<td>' . formatDate($row['date']) . ' - '. $row['time'] .'</td>';
                     echo '<td>' . $row['message'] . '</td>';
                     echo '<td>' . ($row['scary'] ? 'Yes' : 'No') . '</td>';
-                    echo "<td><a href='details.php?id={$row['id']}' class='btn btn-primary'>Details</a></td>";
+                    echo "<td><a href='details.php?id=".encryptId($row['id'])."' class='btn btn-primary'>Details</a></td>";
                     echo '</tr>';
                 }
             ?>
