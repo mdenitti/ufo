@@ -31,10 +31,21 @@
 
                 // reference the Dompdf namespace
                 use Dompdf\Dompdf;
+                $html = '<h1>UFO Certificate</h1>';
+                $html .= '<p>You have been in contact with a UFO</p>';
+                $html .= '<p>Name: '.$name.'</p>';
+                $html .= '<p>Email: '.$email.'</p>';
+                $html .= '<p>Location: '.$location.'</p>';
+                $html .= '<p>Date: '.formatDate($date).'</p>';
+                $html .= '<p>Time: '.$time.'</p>';
+                $html .= '<p>Message: '.$message.'</p>';
+                $html .= '<p>Image: <img src="http://localhost:8000/assets/images/'.$filename.'" width="200"></p>';   
+                $html .= '<p>Scary: '.($scary ? 'Yes' : 'No').'</p>';
+                $html .= '<p>Thank you for your submission</p>';
 
                 // instantiate and use the dompdf class
                 $dompdf = new Dompdf();
-                $dompdf->loadHtml('hello world');
+                $dompdf->loadHtml($html);
 
                 // (Optional) Setup the paper size and orientation
                 $dompdf->setPaper('A4', 'landscape');
