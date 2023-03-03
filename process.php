@@ -6,6 +6,12 @@ require 'header.php';
             <div class="col">
                 <h1>UFO submit result</h1>
                 <?php
+                // check if form is submitted
+                if(!isset($_POST['submit'])){
+                    echo "Please fill out the form first...";
+                    die();
+                }
+
                 // check if scary isset
                 if(isset($_POST['scary'])){
                     $scary = 1;
