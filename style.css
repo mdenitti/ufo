@@ -1,0 +1,83 @@
+* {
+    font-family: 'Arima', cursive;
+    font-family: 'Orbitron', sans-serif;
+}
+
+body {
+    background-color: lavenderblush;
+    background-image: url("assets/images/space_background02.jpg");
+    background-position: center;
+    /* Center the image */
+    background-repeat: no-repeat;
+    /* Do not repeat the image */
+    background-size: cover;
+    color: #ECC54C;
+}
+
+table,
+thead,
+th,
+tbody,
+td, .details {
+    color: #ECC54C !important;
+    text-shadow: 1px 1px #C66E9B;
+}
+
+table {
+    background-color: rgba(207, 116, 163, 0.2);
+    border-radius: 10px;
+
+}
+
+.appname {
+    font-weight: 700;
+    font-size: 3.7rem;
+    margin-bottom: 50px;
+    -webkit-text-stroke-width: 3px;
+    -webkit-text-stroke-color: #C66E9B;
+}
+
+.logo {
+    width: 360px;
+    height: 288px;
+    border-radius: 13px;
+    margin-left: 2%;
+    float: left;
+}
+
+.nav-link {
+    border-radius: 10px;
+    border: 1px solid #C66E9B;
+}
+
+a:hover  {
+    background-color: #ECC54C !important;
+    color: #C66E9B !important;
+    text-shadow: 1px 1px black;
+}
+
+nav,
+input,
+textarea,
+.input-form,
+.nav-link, input::file-selector-button,
+::placeholder {
+    margin-bottom: 2%;
+    background-color: rgba(207, 116, 163, 0.2) !important;
+    color: #ECC54C !important;
+    text-shadow: 1px 1px #C66E9B;
+
+}
+
+.form-control,
+nav {
+    border: 1px solid #C66E9B;
+}
+
+.btn-search,
+.btn-detail {
+    float: right;
+    height: 38px;
+    text-shadow: 1px 1px #ECC54C;
+    border: 1px solid #C66E9B;
+}
