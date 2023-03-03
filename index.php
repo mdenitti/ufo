@@ -7,7 +7,7 @@
                 - <?php echo getDateInDutch()?>
                 </h6>
 
-                <form method="post" action="process.php" enctype="multipart/form-data" class="bg-dark p-2 text-dark bg-opacity-10 rounded mb-2">
+                <form method="post" action="process.php" enctype="multipart/form-data" class="bg-dark p-2 bg-opacity-10 rounded mb-2 input-form">
                     <input class='form-control' type="text" name="name" placeholder="Name"><hr>
                     <input class='form-control' type="email" name="email" placeholder="Email"><hr>
                     <input class='form-control' type="text" name="location" placeholder="Location"><hr>
@@ -18,8 +18,8 @@
                           Does the alien look scary?
                     </div>
                     <textarea class='form-control' name="message"></textarea><br>
-                    <input class="form-control" type="file" name="alienImg"><hr>
-                    <input class='btn btn-primary' type="submit" value="Submit">
+                    <input class="form-control file-upload" type="file" name="alienImg"><hr>
+                    <input class='btn btn-outline-light' type="submit" value="Submit">
                 </form>
             </div>
         </div>

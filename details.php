@@ -10,7 +10,7 @@ if (isset($_GET['id'])) {
 
   if ($row) {
     // Display sighting details
-    echo '<div class="col">';
+    echo '<div class="col details">';
     echo '<h1>Sighting details</h1>';
 
     // Display location, date and time, and description
