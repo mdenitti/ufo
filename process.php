@@ -7,7 +7,7 @@ require 'header.php';
                 <h1>UFO submit result</h1>
                 <?php
                 // check if form is submitted
-                if(!isset($_POST['submit'])){
+                if(!isset($_POST)){
                     echo "Please fill out the form first...";
                     die();
                 }
