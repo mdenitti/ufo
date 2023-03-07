@@ -28,7 +28,7 @@ img.img-fluid.logo {
 
 .row.blue {
     background-color: #67a1d994;
-    padding: 20px;
+    padding: 30px;
     border-radius: 7px;
     margin-top: 19px;
     color: white;
@@ -86,4 +86,9 @@ button.btn.btn-outline-primary {
 
 table.table {
     color: white;
+}
+
+img.img.img-fluid.history {
+    border-radius: 4px;
+    width: 100%;
 }

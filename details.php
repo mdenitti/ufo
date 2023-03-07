@@ -25,9 +25,9 @@ if (isset($_GET['id'])) {
     // Display image
     $imagePath = 'assets/images/' . $row['alienImg'];
     if (!empty($row['alienImg']) && file_exists($imagePath)) {
-        echo "<img src='$imagePath' alt='Alien image' class='img-fluid'>";
+        echo "<img src='$imagePath' alt='Alien image' class='img-fluid listing'>";
     } else {
-        echo "<img src='assets/images/default-image.jpg' alt='Default image' class='img-fluid'>";
+        echo "<img src='assets/images/default-image.jpg' alt='Default image' class='img-fluid listing'>";
     }    
 
     // Add social media sharing buttons

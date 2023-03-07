@@ -28,10 +28,10 @@
                     $imagePath = 'assets/images/' . $row['alienImg'];
                     // Check if image is not empty and exists
                     if (!empty($row['alienImg']) && file_exists($imagePath)) {
-                        echo "<td><img src='$imagePath' width='100px'></td>";
+                        echo "<td><img src='$imagePath' class='img img-fluid history' width='100px'></td>";
                     } else {
                         // Display default image
-                        echo "<td><img src='assets/images/default-image.jpg' width='100px'></td>";
+                        echo "<td><img src='assets/images/default-image.jpg' class='img img-fluid history' width='100px'></td>";
                     }
                     // Display other data
                     echo '<td>' . $row['location'] . '</td>';
