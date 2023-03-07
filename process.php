@@ -1,9 +1,17 @@
-<?php require 'header.php'; ?>
+<?php 
+require 'header.php';
+?>
 
         <div class="row">
             <div class="col">
                 <h1>UFO submit result</h1>
                 <?php
+                // check if form is submitted
+                if(!isset($_POST)){
+                    echo "Please fill out the form first...";
+                    die();
+                }
+
                 // check if scary isset
                 if(isset($_POST['scary'])){
                     $scary = 1;
@@ -34,8 +42,9 @@
                 
 
                 // reference the Dompdf namespace
-                use Dompdf\Dompdf;
-                $html = '<h1>UFO Certificate</h1>';
+               
+                $html = '<body style="font-family: Helvetica;">';
+                $html .= '<h1 style="color:#CC0000">UFO Certificate</h1>';
                 $html .= '<p>You have been in contact with a UFO</p>';
                 $html .= '<p>Name: '.$name.'</p>';
                 $html .= '<p>Email: '.$email.'</p>';
@@ -43,11 +52,13 @@
                 $html .= '<p>Date: '.formatDate($date).'</p>';
                 $html .= '<p>Time: '.$time.'</p>';
                 $html .= '<p>Message: '.$message.'</p>';
-                $html .= '<p><img src="data:image/svg+xml;base64,' . $encimage . '"</p>';
+                $html .= '<p><img src="data:image/svg+xml;base64,'.$encimage.'" width="300px"></p>';
                 // $html .= '<p>Image: <img src="http://localhost:8000/assets/images/'.$filename.'" width="200"></p>';   
                 $html .= '<p>Scary: '.($scary ? 'Yes' : 'No').'</p>';
                 $html .= '<p>Thank you for your submission</p>';
+                $html .= '</body>';
 
+<<<<<<< HEAD
                 // instantiate and use the dompdf class
                 $dompdf = new Dompdf();
                 $dompdf->loadHtml($html);
@@ -61,8 +72,11 @@
 
                 // Output the generated PDF to Browser
                 $dompdf->stream('my_document.pdf');
+=======
+                // Generate the PDF and get its file path
+               
                 
-                die();
+>>>>>>> f7564eed7db9afa9a4412eabdd4fa695cf95c8ce
                 
                 $insertQuery = "INSERT INTO `aliens` (`name`, `email`, `location`, `date`, `time`, `scary`, `message`, `alienImg`, `approved`) 
                 VALUES ('$name', '$email', '$location', '$date', '$time', $scary, '$message', '$filename',0)";
@@ -84,6 +98,12 @@
                 <hr>
                 <h2>Image</h2>
                 <img src="assets/images/<?php echo $filename?>" width="200">
+                <hr>
+                <?php
+                    $pdfPath = generatePDF($html);
+                    $downloadpdf = $pdfPath;
+                    echo '<a href="'.$downloadpdf.'" class="btn btn-primary" target="_blank">Download PDF</a>';
+                ?>
             </div>
         </div>
 

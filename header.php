@@ -1,7 +1,6 @@
 <?php
 require 'includes/common.php';
 require 'includes/env.php';
-require 'vendor/autoload.php';
 ?>
 
 <!DOCTYPE html>
