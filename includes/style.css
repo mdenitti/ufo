@@ -1,0 +1,89 @@
+body {
+    background-color: #22201f;
+    background-image: url(https://static.vecteezy.com/system/resources/thumbnails/012/415/159/small_2x/milky-way-galaxy-background-free-vector.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+h1 {
+    color: #ffffff;
+   
+    font-size: 3em;
+    font-weight: 100;
+   
+}
+
+h3 {
+    color: #ffffff;
+    font-weight: 100;
+    font-size: 2em;
+    margin-bottom: -9px;
+    margin-top: 22px;
+}
+
+img.img-fluid.logo {
+    margin-top: 40px;
+}
+
+.row.blue {
+    background-color: #67a1d994;
+    padding: 20px;
+    border-radius: 7px;
+    margin-top: 19px;
+    color: white;
+}
+
+input.btn.btn-primary {
+    background-color: #93599c;
+    border: none;
+}
+
+hr {
+    margin: 1rem 0;
+    color: inherit;
+    border: 0;
+    border-top: var(--bs-border-width) solid;
+    opacity: .25;
+    margin: 4px;
+}
+
+nav.navbar.navbar-expand-lg.bg-light {
+    background-color: #ffffff00!important;
+    /* padding: 13px; */
+}
+
+a.nav-link {
+    color: #d5a8d7;
+}
+
+input.form-control {
+    background-color: #f0f8ff17;
+    color: white!important;
+}
+
+input.form-control::placeholder {
+   
+    color: white!important;
+}
+
+/* style input placeholder bootstrap */
+::-webkit-input-placeholder {
+    color: #ffffff;
+}
+
+
+
+button.btn.btn-outline-primary {
+    border-color: #ebc54c;
+    background-color: #e7c24c;
+    color: white;
+}
+
+.form-check {
+    color: #9fbfe6;
+}
+
+table.table {
+    color: white;
+}

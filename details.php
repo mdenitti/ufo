@@ -10,6 +10,7 @@ if (isset($_GET['id'])) {
 
   if ($row) {
     // Display sighting details
+    echo '<div class="row blue">';
     echo '<div class="col">';
     echo '<h1>Sighting details</h1>';
 
@@ -41,6 +42,7 @@ if (isset($_GET['id'])) {
     echo '<div class="col">';
     echo '<h1>Sighting not found</h1>';
     echo '<p>The sighting you requested could not be found.</p>';
+    echo '</div>';
     echo '</div>';
   }
 
