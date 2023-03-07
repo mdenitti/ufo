@@ -1,0 +1,63 @@
+@font-face {
+  font-family: "LucidityCondensed";
+  src: url("assets/fonts/LucidityCondensed.ttf") format("truetype");
+}
+
+* {
+  color: #90596b;
+}
+body {
+  background-color: #222021;
+}
+
+.nav-link {
+  color: #e7c24b;
+  font-family: "LucidityCondensed";
+  font-size: 1.2rem;
+  width: 8rem;
+  text-align: center;
+}
+
+.nav-link:hover {
+  color: #d064ba;
+}
+
+.col-form {
+}
+
+.col-img img {
+}
+
+.input-form {
+  width: 50%;
+  /* text-align: center; */
+  margin: 0 auto;
+}
+/* .input-form input {
+  margin: 1.5rem;
+} */
+
+.form-check-input {
+  color: #90596b !important;
+}
+.form-input-field {
+  margin: 1.5rem;
+  font-family: "Quicksand", sans-serif;
+  color: #222021;
+}
+
+.submit-button {
+  background-color: #e7c24b;
+  color: #222021;
+  font-family: "LucidityCondensed";
+  width: 60%;
+  font-size: 1.5rem;
+}
+
+.submit-button:hover {
+  background-color: #d064ba;
+}
+.submit {
+  display: flex;
+  justify-content: center;
+}
