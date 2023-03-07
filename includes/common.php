@@ -77,18 +77,16 @@ function getDateInDutch() {
     return $date;
   }
 
-  function encryptId ($id) {
-    $id = base64_encode($id);
-    // replace the = char to prevent errors
-    $id = str_replace('=', '', $id);
-    $id = strrev($id);
-    return $id;
+  // encrypt id
+  function encrypt_id($id) {
+    $id_encrypted = openssl_encrypt($id, 'AES-256-CBC', 'my-secret-key');
+    return $id_encrypted;
   }
 
-  function decryptId ($id) {
-    $id = strrev($id);
-    $id = base64_decode($id);
-    return $id;
+  //decrypt id
+  function decrypt_id($id_encrypted) {
+    $id_decrypted = openssl_decrypt($id_encrypted, 'AES-256-CBC', 'my-secret-key');
+    return intval($id_decrypted);
   }
 
 

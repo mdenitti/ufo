@@ -38,8 +38,8 @@ require 'includes/env.php';
                       <a class="nav-link" href="contact.php">Contact</a>
                     </div>
                     <form class="d-flex" action="results.php" method="get">
-                      <input class="form-control me-2" type="search" placeholder="Search location" aria-label="Search" name="search">
-                      <button class="btn btn-outline-primary" type="submit">Search</button>
+                        <input class="form-control me-2" type="search" placeholder="Search location" aria-label="Search" name="search" value="<?php echo sanitizeInput($_GET['search'] ?? ''); ?>">
+                        <button class="btn btn-outline-primary" type="submit">Search</button>
                     </form>
                   </div>
                 </nav>

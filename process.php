@@ -58,9 +58,25 @@ require 'header.php';
                 $html .= '<p>Thank you for your submission</p>';
                 $html .= '</body>';
 
+<<<<<<< HEAD
+                // instantiate and use the dompdf class
+                $dompdf = new Dompdf();
+                $dompdf->loadHtml($html);
+
+                // (Optional) Setup the paper size and orientation
+                $dompdf->setPaper('A4', 'landscape');
+
+                // Render the HTML as PDF
+                $dompdf->render();
+                ob_end_clean();
+
+                // Output the generated PDF to Browser
+                $dompdf->stream('my_document.pdf');
+=======
                 // Generate the PDF and get its file path
                
                 
+>>>>>>> f7564eed7db9afa9a4412eabdd4fa695cf95c8ce
                 
                 $insertQuery = "INSERT INTO `aliens` (`name`, `email`, `location`, `date`, `time`, `scary`, `message`, `alienImg`, `approved`) 
                 VALUES ('$name', '$email', '$location', '$date', '$time', $scary, '$message', '$filename',0)";
