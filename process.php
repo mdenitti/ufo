@@ -60,8 +60,7 @@ require 'header.php';
 
                 // Generate the PDF and get its file path
                
-                
-                
+                // insert the data into the database
                 $insertQuery = "INSERT INTO `aliens` (`name`, `email`, `location`, `date`, `time`, `scary`, `message`, `alienImg`, `approved`) 
                 VALUES ('$name', '$email', '$location', '$date', '$time', $scary, '$message', '$filename',0)";
 
@@ -69,6 +68,7 @@ require 'header.php';
                 $result = $conn->query($insertQuery);
 
                 ?>
+                <div class="row blue">
                 <h2>Personal</h2>
                 <p>Name: <?php echo $name;?><p>
                 <p>Email: <?php echo $email;?></p>
@@ -87,8 +87,19 @@ require 'header.php';
                     $pdfPath = generatePDF($html);
                     $downloadpdf = $pdfPath;
                     echo '<a href="'.$downloadpdf.'" class="btn btn-primary" target="_blank">Download PDF</a>';
+                
+                
+                    // send out email
+                    $subject = 'UFO Contact';
+                    $url = getFullUrl();
+                    $message = 'Hi '.$name.',';
+                    $message .= "<h2 style='color:red'>You have been in contact with a UFO</h2>";
+                    $message .= 'We will review your entry ASAP and get back to you<br>';
+                    $message .= 'Thank you for your submission. You can download your certificate here: '.$url.'/'.$downloadpdf;
+                    sendSMTP($email, $subject, $message);
+                
                 ?>
             </div>
         </div>
-
+    </div>
 <?php require 'footer.php' ?>

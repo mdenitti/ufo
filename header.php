@@ -1,6 +1,6 @@
 <?php
-require 'includes/common.php';
 require 'includes/env.php';
+require 'includes/common.php';
 ?>
 
 <!DOCTYPE html>
@@ -24,6 +24,7 @@ require 'includes/env.php';
                 <img src="includes/logo_no.png" class="img-fluid logo" alt="ufo" width="150px">
                
                 <h3>Submit your UFO sighting</h3>
+              
                 <nav class="navbar navbar-expand-lg bg-light">
                
                   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">

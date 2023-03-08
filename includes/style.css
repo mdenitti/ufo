@@ -4,91 +4,91 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-}
-
-h1 {
+    }
+    
+    h1, h3 {
     color: #ffffff;
-   
+    font-weight: 100;
+    }
+    
+    h1 {
     font-size: 3em;
-    font-weight: 100;
-   
-}
-
-h3 {
-    color: #ffffff;
-    font-weight: 100;
+    }
+    
+    h3 {
     font-size: 2em;
     margin-bottom: -9px;
     margin-top: 22px;
-}
-
-img.img-fluid.logo {
+    }
+    
+    img.img-fluid.logo {
     margin-top: 40px;
-}
-
-.row.blue {
+    }
+    
+    .row.blue {
     background-color: #67a1d994;
     padding: 30px;
     border-radius: 7px;
     margin-top: 19px;
     color: white;
-}
-
-input.btn.btn-primary {
+    }
+    
+    input.btn.btn-primary {
     background-color: #93599c;
     border: none;
-}
-
-hr {
+    }
+    
+    hr {
     margin: 1rem 0;
     color: inherit;
     border: 0;
     border-top: var(--bs-border-width) solid;
     opacity: .25;
     margin: 4px;
-}
-
-nav.navbar.navbar-expand-lg.bg-light {
-    background-color: #ffffff00!important;
-    /* padding: 13px; */
-}
-
-a.nav-link {
+    }
+    
+    nav.navbar.navbar-expand-lg.bg-light {
+    background-color: transparent!important;
+    }
+    
+    a.nav-link {
     color: #d5a8d7;
-}
-
-input.form-control {
+    }
+    
+    input.form-control {
     background-color: #f0f8ff17;
     color: white!important;
-}
+    }
 
-input.form-control::placeholder {
-   
+    input.form-control:focus {
+        background-color: #eef7ff42;
+        color: white!important;
+        }
+    
+    input.form-control::placeholder {
     color: white!important;
-}
-
-/* style input placeholder bootstrap */
-::-webkit-input-placeholder {
+    }
+    
+    /* style input placeholder bootstrap */
+    ::-webkit-input-placeholder {
     color: #ffffff;
-}
-
-
-
-button.btn.btn-outline-primary {
+    }
+    
+    button.btn.btn-outline-primary {
     border-color: #ebc54c;
     background-color: #e7c24c;
     color: white;
-}
-
-.form-check {
+    }
+    
+    .form-check {
     color: #9fbfe6;
-}
-
-table.table {
+    }
+    
+    table.table {
     color: white;
-}
-
-img.img.img-fluid.history {
+    }
+    
+    img.img.img-fluid.history {
     border-radius: 4px;
     width: 100%;
-}
+    }

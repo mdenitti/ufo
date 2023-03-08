@@ -1,6 +1,24 @@
 <?php
 require 'vendor/autoload.php';
 use Dompdf\Dompdf;
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
+$host = 'ID324796_ufo.db.webhosting.be';
+$user = 'ID324796_ufo';
+$database = 'ID324796_ufo';
+$password = 'm1i4q9ov7moVfpZ01b88';
+$baseurl = 'http://localhost:8000/';
+$key = '1234567890';
+
+// Create connection
+$conn = new mysqli($host, $user, $password, $database);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
 
 function sanitizeInput ($input){
     $input = trim($input);
@@ -113,4 +131,74 @@ function generatePDF($html) {
 
     // Return the path to the saved PDF file
     return $filenamepdf;
+}
+
+function getFullUrl() {
+    $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off' ? 'https' : 'http';
+    $host = $_SERVER['HTTP_HOST'];
+    return $protocol . '://' . $host;
+}
+
+function sendSMTP($email, $subject, $message) {
+
+  //Create an instance; passing `true` enables exceptions
+  $mail = new PHPMailer(true);
+
+  try {
+    //$mail->SMTPDebug = SMTP::DEBUG_SERVER; 
+    $mail->isSMTP();
+    $mail->Host       = '0.0.0.0';
+    $mail->SMTPAuth   = false;
+    $mail->SMTPAutoTLS = false;
+    $mail->Port       = 1025;
+
+    //Recipients
+    $mail->setFrom('info@spacespy.com', 'SpaceSpy');
+    $mail->addAddress($email);     // Add a recipient
+    $mail->addBCC('info@spacespy.com', 'SpaceSpy');
+
+    // Content
+    $mail->isHTML(true);                                  // Set email format to HTML
+    $mail->Subject = $subject;
+    $mail->Body    = $message;
+
+    $mail->send();
+
+  } catch (Exception $e) {
+    echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+  }
+
+
+}
+
+class User {
+  private $id;
+  public $username;
+  private $email;
+  private $password;
+  private $conn;
+  // private $conn = new mysqli('ID324796_ufo.db.webhosting.be', 'ID324796_ufo', 'm1i4q9ov7moVfpZ01b88', 'ID324796_ufo');
+  // instantiate a database connection string
+
+
+  public function __construct($username = null, $password = null) {
+   
+    $this->username = $username;
+    $this->password = $password;
+    $this->conn = new mysqli('ID324796_ufo.db.webhosting.be', 'ID324796_ufo', 'm1i4q9ov7moVfpZ01b88', 'ID324796_ufo');
+  }
+
+
+  public function checkPassword () {
+    $query = "SELECT * FROM users WHERE name = '$this->username'";
+    $result = mysqli_query($this->conn, $query);
+    $user = mysqli_fetch_assoc($result);
+    $password = $user['password'];
+    if (password_verify($this->password, $password)) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
 }
