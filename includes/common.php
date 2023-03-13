@@ -1,5 +1,6 @@
 <?php
 session_start();
+error_reporting(error_reporting() & ~E_DEPRECATED);
 require 'vendor/autoload.php';
 use Dompdf\Dompdf;
 use PHPMailer\PHPMailer\PHPMailer;
@@ -211,6 +212,36 @@ class User {
     } else {
       return false;
     }
+  }
+
+}
+
+class Moderate {
+  private $id;
+
+  public function __construct($id = null) {
+    $this->username = $id;
+    $this->conn = new mysqli('ID324796_ufo.db.webhosting.be', 'ID324796_ufo', 'm1i4q9ov7moVfpZ01b88', 'ID324796_ufo');
+  }
+
+  public function getUnapproved () {
+    $query = "SELECT * FROM aliens WHERE approved = 0 ORDER BY id DESC";
+    $result = mysqli_query($this->conn, $query);
+    $aliens = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    return $aliens;
+  }
+
+  public function approve() {
+    $stmt = $this->conn->prepare("UPDATE aliens SET approved = 1 WHERE id = ?");
+    $stmt->bind_param("i", $this->id);
+    $stmt->execute();
+    return $stmt->affected_rows;
+}
+
+  public function delete () {
+    $query = "DELETE FROM aliens WHERE id = $this->id";
+    $result = mysqli_query($this->conn, $query);
+    return $result;
   }
 
 }
