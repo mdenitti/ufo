@@ -188,7 +188,6 @@ class User {
     $this->conn = new mysqli('ID324796_ufo.db.webhosting.be', 'ID324796_ufo', 'm1i4q9ov7moVfpZ01b88', 'ID324796_ufo');
   }
 
-
   public function checkPassword () {
     $query = "SELECT * FROM users WHERE name = '$this->username'";
     $result = mysqli_query($this->conn, $query);
