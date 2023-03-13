@@ -1,4 +1,5 @@
 <?php
+session_start();
 require 'vendor/autoload.php';
 use Dompdf\Dompdf;
 use PHPMailer\PHPMailer\PHPMailer;
@@ -109,6 +110,12 @@ function getDateInDutch() {
     return $id;
   }
 
+  function checklogin () {
+    if (!isset($_SESSION['id'])) {
+      header('Location: login.php');
+    }
+  }
+
 
 function generatePDF($html) {
     // instantiate and use the dompdf class
@@ -198,6 +205,8 @@ class User {
     }
     $password = $user['password'];
     if (password_verify($this->password, $password)) {
+      // fill session variables with user data
+      $_SESSION['id'] = $user['id'];
       return true;
     } else {
       return false;

@@ -1,5 +1,7 @@
 <?php
 require 'header.php';
+checklogin();
+
 if (isset($_POST['username']) && isset($_POST['password'])) {
     // check if username is submitted!
     $username = sanitizeInput($_POST['username']);
@@ -15,7 +17,9 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 <div class="row blue">
     <div class="col">
         <?php if($user->checkPassword()) {
-            echo 'Password is correct';
+           
+           echo 'Welcome ' . $user->username . '!';
+
         } else {
             echo 'Password is incorrect';
         }; ?>
