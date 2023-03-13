@@ -192,6 +192,10 @@ class User {
     $query = "SELECT * FROM users WHERE name = '$this->username'";
     $result = mysqli_query($this->conn, $query);
     $user = mysqli_fetch_assoc($result);
+    // check if result is empty or not
+    if (empty($user)) {
+      return false;
+    }
     $password = $user['password'];
     if (password_verify($this->password, $password)) {
       return true;

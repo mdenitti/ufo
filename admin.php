@@ -1,9 +1,14 @@
 <?php
 require 'header.php';
-
-$username = sanitizeInput($_POST['username']);
-$password = sanitizeInput($_POST['password']);
-$user = new User($username,$password); 
+if (isset($_POST['username']) && isset($_POST['password'])) {
+    // check if username is submitted!
+    $username = sanitizeInput($_POST['username']);
+    $password = sanitizeInput($_POST['password']);
+    $user = new User($username,$password); 
+} else {
+    // redirect to login page
+    header('Location: login.php');
+}
 
 ?>
 
